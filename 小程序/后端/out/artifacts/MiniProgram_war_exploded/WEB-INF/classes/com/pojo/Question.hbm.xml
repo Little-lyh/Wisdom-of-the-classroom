@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.pojo.Question" table="question">
+        <id name="id">
+            <column name="qid"/>
+            <generator class="increment"/>
+        </id>
+        <property name="question">
+            <column name="question"/>
+        </property>
+        <property name="option_A">
+            <column name="optionA"/>
+        </property>
+        <property name="option_B">
+            <column name="optionB"/>
+        </property>
+        <property name="option_C">
+            <column name="optionC"/>
+        </property>
+        <property name="option_D">
+            <column name="optionD"/>
+        </property>
+        <property name="answer">
+            <column name="answer"/>
+        </property>
+        <property name="point">
+            <column name="point"/>
+        </property>
+        <many-to-one name="teachers" class="com.pojo.Teachers" fetch="select" not-null="true" lazy="false">
+            <column name="username"/>
+        </many-to-one>
+        <set name="q_records" inverse="true" cascade="all" lazy="false">
+            <key column="qid"/>
+            <one-to-many class="com.pojo.Q_record"/>
+        </set>
+    </class>
+</hibernate-mapping>

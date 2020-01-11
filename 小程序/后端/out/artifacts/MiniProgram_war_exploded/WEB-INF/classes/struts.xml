@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="StudentLoginAction" class="com.action.StudentLoginAction"></action>
+        <action name="TeacherLoginAction" class="com.action.TeacherLoginAction"></action>
+        <action name="GetPrizeListAction_*" class="com.action.GetPrizeListAction" method="{1}"></action>
+        <action name="GetProblemListAction_*" class="com.action.GetProblemListAction" method="{1}"></action>
+        <action name="StudentMessageAction_*" class="com.action.StudentMessageAction" method="{1}"></action>
+        <action name="TeacherMessageAction" class="com.action.TeacherMessageAction"></action>
+        <action name="ChangePointAction" class="com.action.ChangePointAction"></action>
+        <action name="AddQuestionAction_*" class="com.action.AddQuestionAction" method="{1}"></action>
+        <action name="ManagerLoginAction_*" class="com.action.ManagerLoginAction">
+            <result name="success">../MainPage/ManagerMainPage.jsp</result>
+            <result name="error">../jsp/error.jsp</result>
+        </action>
+    </package>
+</struts>

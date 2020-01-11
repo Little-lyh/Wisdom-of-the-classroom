@@ -1,0 +1,65 @@
+<scroll-view scroll-y class="DrawerPage" scroll-with-animation="true" style="background-color: {{skin?'#030852':'#ffffff'}};">
+
+    <cu-custom bgColor="bg-lightGrey" isBack="{{false}}" isCustom="{{true}}" isNav="{{false}}">
+        <view slot="backText">返回</view>
+        <view slot="content" class="text-shadow-meows">
+        </view>
+    </cu-custom>
+    <view class="flex-sub text-center margin-sm">
+      <view class="text-xxxl">
+        <text class="text-black text-bold">{{postTitle}}</text>
+      </view>
+    </view>
+    <view class="margin-lr-sm flex flex-wrap">
+        <view class="padding-xs bg-white">
+            <view class="cu-tag radius" wx:for="{{postTags}}" wx:key="key" wx:for-item="postTags" wx:for-index="index">{{postTags.name}}</view>
+        </view>
+    </view>
+
+    <view class="margin-sm">
+        <htmltowxml text="{{postContent}}" type="md" highlightStyle="{{style}}" linenums="{{false}}" showLoading="{{false}}" bindWxmlTagATap="wxmlTagATap" imghost=""></htmltowxml>
+    </view>
+
+    <view class="ad">
+        <ad unit-id="adunit-da5b1800a9eae6d3" ad-intervals="30"></ad>
+    </view>
+    <view class="cu-bar bg-white align-center">
+        <view class="action border-title">
+            <text class="text-xxl text-bold text-blue">题目</text>
+            <text class="bg-gradual-blue"></text>
+        </view>
+    </view>
+    <text class="text-xxl text-bold text-blue">\n</text>
+    <view class="cu-bar bg-white align-center" style="margin:auto">
+        <view class="action border-title">
+            <text class="text-xxl text-bold text-green">{{problem.question}}</text>
+        </view>
+    </view>
+    <text class="text-xxl text-bold text-blue">\n</text>
+    <view  style="margin:auto;width:90%;font-size:40rpx;">
+    <i-radio-group current="{{current}}" bindchange="handleFruitChange" style="margin:auto;width:90%;font-size:50rpx;">
+        <i-radio  position="{{position}}"  value="{{problem.option_A}}" >
+        </i-radio>
+        <i-radio  position="{{position}}"  value="{{problem.option_B}}" >
+        </i-radio>
+        <i-radio  position="{{position}}"  value="{{problem.option_C}}" >
+        </i-radio>
+        <i-radio  position="{{position}}"  value="{{problem.option_D}}" style="margin:auto;width:90%;font-size:30rpx;">
+        </i-radio>
+    </i-radio-group>
+    </view>
+    <view class="cu-bar search bg-white" >
+        <view class="action" style="margin:auto;width:90%;height:270rpx;width:90%">
+            <button class="cu-btn bg-lightBlue shadow-blur round" bindtap="handleClick" style="height:100rpx;width:200rpx;font-size:30rpx;">提交</button>
+        </view>
+    </view>
+    <text class="text-xxl text-bold text-blue">\n</text>
+    <!--<i-button type="primary" shape="circle" bindtap="handleClick">
+        <text class="text-xxl text-bold text-white">提交</text>
+    </i-button>-->
+
+    <i-modal title="提示" visible="{{ visible1 }}" bind:ok="handleClose2" bind:cancel="handleClose1">
+        <text class="text-xxl text-bold text-black">确定提交吗？</text>
+    </i-modal>
+    <i-toast id="toast" />
+</scroll-view>

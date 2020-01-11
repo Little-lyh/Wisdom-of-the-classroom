@@ -1,0 +1,9 @@
+java.lang.NullPointerException
+	at com.client.StudentFrame.<init>(StudentFrame.java:41)
+	at com.client.StudentMain.main(StudentMain.java:9)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at com.exe4j.runtime.LauncherEngine.launch(LauncherEngine.java:85)
+	at com.exe4j.runtime.WinLauncher.main(WinLauncher.java:94)

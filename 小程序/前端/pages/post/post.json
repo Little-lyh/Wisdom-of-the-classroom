@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "htmltowxml": "plugin://htmltowxml/view",
+        "i-radio-group": "../../dist/radio-group/index",
+        "i-radio": "../../dist/radio/index",
+        "i-button": "../../dist/button/index",
+        "i-modal": "../../dist/modal/index",
+        "i-toast": "../../dist/toast/index"
+    }
+}

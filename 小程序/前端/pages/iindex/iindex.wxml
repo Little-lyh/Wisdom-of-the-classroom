@@ -1,0 +1,36 @@
+<!--pages/iindex/iindex.wxml-->
+<!--pages/login/login.wxml-->
+<wh-authorCard isHidden="{{aflag}}" id="authorCardId"></wh-authorCard>
+<scroll-view scroll-y class="DrawerPage {{modalName=='viewModal'?'show':''}}" bindscroll="onPageScroll" scroll-with-animation="true" style="background-color: {{skin?'#ffffff':'#ffffff'}};" bindscrolltolower="loadMore">
+    
+    <view bindtouchstart="touchStart" bindtouchend="touchEnd" class="flex justify-center align-center bg-white" style="width:100%; height:460rpx; background-image:url(https://i.loli.net/2019/07/05/5d1eb991a72de80058.png); background-repeat: no-repeat; background-size: 100% 100%;">
+        <view class="grid col-1 margin-bottom text-center">
+            <view class="text-xxxl padding text-shadow-meow" role="" aria-label="">
+                <text class="text-white text-bold">积分系统</text>
+            </view>
+            <view class="text-xl padding text-shadow-meow text-white text-bold" role="" aria-label="">
+                <wh-typeWriter whContent="{{jinrishici}}"></wh-typeWriter>
+            </view>
+        </view>
+    </view>
+    <view class="home text-shadow-meow" bindtap="showModal" data-target="viewModal">
+        <view class="home-btn home-img shadow-blur"></view>
+    </view>
+    <!-- catch:touchstart="maopao" catch:touchend="maopao" -->
+    <view style="margin-right:20rpx; margin-left:20rpx;">
+        <official-account style=""></official-account>
+    </view>
+    <view class="cu-bar search bg-white" >
+          <view class="action" style="margin:auto;width:90%;height:200rpx;width:90%">
+              <button class="cu-btn bg-lightBlue shadow-blur round" bindtap="TeacherSubmit" style="height:100rpx;width:500rpx;font-size:30rpx;">我是老师</button>
+          </view>
+    </view>
+    <view class="cu-bar search bg-white" >
+        <view class="action" style="margin:auto;width:90%;height:200rpx;width:90%">
+            <button class="cu-btn bg-green shadow-blur round" bindtap="StudentSubmit" style="height:100rpx;width:500rpx;font-size:30rpx;">我是学生</button>
+        </view>
+    </view>
+    <i-toast id="toast" />
+</scroll-view>
+
+

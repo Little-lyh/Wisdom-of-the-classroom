@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="MiniProgram:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/MiniProgram</output-path>
+    <root id="archive" name="MiniProgram_war.war">
+      <element id="artifact" artifact-name="MiniProgram:war exploded" />
+    </root>
+  </artifact>
+</component>

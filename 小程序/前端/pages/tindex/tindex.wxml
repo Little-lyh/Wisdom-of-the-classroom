@@ -1,0 +1,148 @@
+<!--pages/tindex/tindex.wxml-->
+<wh-authorCard isHidden="{{aflag}}" id="authorCardId"></wh-authorCard>
+<scroll-view scroll-y class="DrawerPage {{modalName=='viewModal'?'show':''}}" bindscroll="onPageScroll" scroll-with-animation="true" style="background-color: {{skin?'#ffffff':'#ffffff'}};" bindscrolltolower="loadMore">
+    <cu-custom bgColor="bg-lightGrey" isBack="{{false}}" isCustom="{{false}}" isNav="{{scrollTop>120?false:true}}" isFixed="fixed">
+        <view slot="backText">返回</view>
+        <view slot="content" class="text-shadow-meows">
+            <text class="text-white text-bold">{{BlogName}}</text>
+        </view>
+    </cu-custom>
+    <wh-addTips text="Meow~ 点击「添加到我的小程序」" duration="2"></wh-addTips>
+    <view bindtouchstart="touchStart" bindtouchend="touchEnd" class="flex justify-center align-center bg-white" style="width:100%; height:460rpx; background-image:url(https://i.loli.net/2019/07/05/5d1eb991a72de80058.png); background-repeat: no-repeat; background-size: 100% 100%;">
+        <view class="grid col-1 margin-bottom text-center">
+            <view class="text-xxxl padding text-shadow-meow" role="" aria-label="">
+                <text class="text-white text-bold">积分系统</text>
+            </view>
+            <view class="text-xl padding text-shadow-meow text-white text-bold" role="" aria-label="">
+                <wh-typeWriter whContent="{{jinrishici}}"></wh-typeWriter>
+            </view>
+        </view>
+    </view>
+    <view class="home text-shadow-meow" bindtap="showModal" data-target="viewModal">
+        <view class="home-btn home-img shadow-blur"></view>
+    </view>
+    <view style="margin-top: -100rpx;" wx:if='{{url}}'>
+        <swiper bindchange="cardSwiper" class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" circular="true" autoplay="true" interval="5000" duration="500">
+            <swiper-item wx:for="{{bg}}" wx:for-item="bannerPost" wx:for-index="index" wx:key="key" class="{{cardCur==index?'cur':''}}" wx:if="{{index<5}}">
+                    <view class="swiper-item" style="padding: 20rpx; padding-bottom:26rpx;" >
+                        <view class="carousel-img radius shadow-meow bg-lightGrey bg-img" style="background-image:url({{url}}{{bannerPost.back}}); width:100%">
+                            <view class="bg-maskCard flex-sub" style="border-radius:6rpx; height:100%; position:relative;">
+                                <view class="padding-lg text-white">
+                                    <view class="padding-xs text-xl text-bold text-shadow">
+                                        {{bannerPost.info1}}
+                                    </view>
+                                </view>
+                                <view class="padding-lg text-white" style="position:absolute; bottom:0; right:0;">
+                                    <view class="padding-xs text-df text-bold text-shadow">
+                                        {{bannerPost.info}}
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view style="margin-right:20rpx; margin-left:20rpx;">
+        <official-account style=""></official-account>
+    </view>
+    <view class="cu-bar search bg-white">
+        <view class="search-form round">
+            <text class="cuIcon-search"></text>
+            <input bindinput="Search" id="search" name="content" type="text" placeholder="输入题号搜索题目" confirm-type="search"></input>
+        </view>
+        <view class="action">
+            <button class="cu-btn bg-lightBlue shadow-blur round" bindtap="SearchSubmit">搜索</button>
+        </view>
+    </view>
+    <!-- 瀑布流 -->
+    <!-- <view class="grid col-2 content text-center" bindtouchstart="touchStart" bindtouchend="touchEnd" wx:if="{{0==TabCur}}"> -->
+    <view class="grid col-2 content text-center" bindtouchstart="touchStart" bindtouchend="touchEnd">
+        <view class="fall-left">
+            <block wx:for="{{postList}}" wx:key="key" wx:for-index="index" wx:for-item="postList" wx:if="{{index%2==0}}">
+                <navigator url="../chquestion/chquestion?postId={{postList.id}}" open-type="navigate" data-id="{{index}}">
+                    <view class="margin-sm radius shadow-blur bg-img {{colourList[(index+randomNum)%10].colour}} animation-scale-up" style="margin-right:10rpx; margin-top:0; background-image:url({{skin?postList.thumbnail:''}}); animation-delay: {{(index+1)*0.2*animationTime}}s;">
+                        <view class="bg-maskCards flex-sub align-end" style="border-radius:6rpx; height:100%;">
+                            <view class="padding-lg text-white">
+                                <view class="padding-xs text-xl text-bold text-shadow">
+                                    {{postList.option_A}}({{postList.point}})
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+            </block>
+        </view>
+        <view class="fall-right">
+            <block wx:for="{{postList}}" wx:key="key" wx:for-index="index" wx:for-item="postList" wx:if="{{index%2==1}}">
+                <navigator url="../chquestion/chquestion?postId={{postList.id}}" open-type="navigate" data-id="{{index}}">
+                    <view class="margin-sm radius shadow-blur bg-img {{colourList[(index+randomNum)%10].colour}} animation-scale-up" style="margin-left:10rpx; margin-top:0; background-image:url({{skin?postList.thumbnail:''}}); animation-delay: {{(index+1)*0.2*animationTime}}s;">
+                        <view class="bg-maskCards flex-sub align-end" style="border-radius:6rpx; height:100%;">
+                            <view class="padding-lg text-white">
+                                <view class="padding-xs text-xl text-bold text-shadow">
+                                    {{postList.option_A}}({{postList.point}})
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+            </block>
+        </view>
+    </view>
+    <view class="flex justify-center grid col-1" hidden="{{!moreFlag}}" bindtouchstart="touchStart" bindtouchend="touchEnd">
+        <view class="bg-img animation-scale-up shadow-blur margin" style="background-image: url('xxxxx');height: 400rpx; width:400rpx;"></view>
+        <view class="text-xs flex justify-center animation-scale-up" style="width:100%; text-align:center;">
+            <view class="text-grey">作者会努力更新文章的 . . .</view>
+        </view>
+        <view class="text-xs flex justify-center" style="height:250rpx;"></view>
+    </view>
+</scroll-view>
+<view class="DrawerClose {{modalName=='viewModal'?'show':''}}" bindtap="hideModal">
+    <text class="cuIcon-pullright"></text>
+</view>
+<scroll-view scroll-y class="DrawerWindow {{modalName=='viewModal'?'show':''}}" bindtouchstart="touchStart" bindtouchend="touchEnd" wx:if='{{url}}'>
+    <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl padding-bottom" style="margin-top:100rpx;">
+        <view class="cu-list menu sm-border card-menu margin-top shadow-meow">
+            <view class="cu-item" style='min-height: 200rpx;'>
+                <block >
+                    <view class="content flex justify-center align-center">
+                        <view class="flex-sub" wx:if='{{teacher}}'>
+                            <view class="cu-avatar xl round menu-img" style="background-image:url({{url}}images/teacher/{{teacher.name}}.PNG);"></view>
+                        </view>
+                        <view class="flex-twice grid col-1 ">
+                            <view class="text-lg margin-xs">
+                                <text class="text-black text-bold">{{teacher.username}}</text>
+                            </view>
+                            <view class="margin-xs bg-white">
+                                <view class="cu-tag radius">老师</view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+            <view class="cu-item arrow">
+                <view class="content" bindtap="showMask">
+                    <text class="cuIcon-github text-gray menu-img"></text>
+                    <text class="text-grey">姓名：{{teacher.name}}</text>
+                </view>
+            </view>
+            <view class="cu-item arrow">
+                <navigator class="content" hover-class="none" url="/pages/addquestion/addquestion" open-type="navigate" bindtap="shutDownDrawer">
+                    <text class="cuIcon-communityfill text-lightBlue menu-img"></text>
+                    <text class="text-grey">添加题目</text>
+                </navigator>
+            </view>
+            <view class="cu-item arrow">
+                <view class="content" bindtap="exit">
+                    <text class="cuIcon-github text-gray menu-img"></text>
+                    <text class="text-grey" style="color:red">切换用户</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="text-xs flex justify-center" style="position:fixed; bottom:20rpx; width:100%; text-align:center;">
+        <view class="text-grey" style="margin-right:4rpx;">Powered by</view>
+        <view class="text-lightBlue">WeHalo</view>
+    </view>
+</scroll-view>
+<i-toast id="toast" />

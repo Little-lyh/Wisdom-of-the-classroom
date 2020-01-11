@@ -1,0 +1,28 @@
+<scroll-view scroll-y class="DrawerPage" scroll-with-animation="true" style="background-color: {{skin?'#030852':'#ffffff'}};">
+
+    <cu-custom bgColor="bg-lightGrey" isBack="{{false}}" isCustom="{{true}}" isNav="{{false}}">
+        <view slot="backText">返回</view>
+        <view slot="content" class="text-shadow-meows">
+            <!-- <text class="text-white text-bold">WeHalo</text> -->
+        </view>
+    </cu-custom>
+    <view class="cu-bar justify-center bg-white margin-sm">
+        <view class="action sub-title">
+            <text class="text-xxl text-bold text-black">兑奖记录</text>
+            <text class="text-ABC text-black">Records</text>
+        </view>
+    </view>
+    <view class="cu-timeline" wx:for="{{prizes}}" wx:key="key" wx:for-index="index" style="margin:auto;width:90%">
+        <view >{{item.date}}</view>
+        <view class="cu-item text-blue">
+            <view class="{{colourList[(index+randomNum)%10].colour}} content shadow-blur">
+            <text class="text-l text-bold text-white">你用{{item.prize.point}}积分兑换了{{item.prize.name}}</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="text-xs flex justify-center" style="margin-bottom: 20rpx; width: 100%; text-align: center;">
+        <view class="text-grey" style="margin-right:4rpx;">Powered by</view>
+        <view class="text-lightBlue">WeHalo</view>
+    </view>
+</scroll-view>

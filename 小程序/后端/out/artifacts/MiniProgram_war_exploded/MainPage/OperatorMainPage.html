@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Home</title>
+
+<link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="assets/font/flaticon.css">
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+	<div class="preloader">
+		<span></span>
+		<span></span>
+	</div>
+</div>
+<!-- End Preloader -->
+
+<div class="side-wrapper">
+	<!-- Top Menu -->
+	<header class="top-nav">
+		<nav id="cssmenu" class="container ">
+			<div class="logo">
+				<h2>积分系统</h2>
+			</div>
+			<div id="head-mobile"></div>
+			<div class="button"></div>
+		</nav>
+	</header>
+	<!-- End Top Menu -->
+
+	<!-- Home 1 Hero -->
+	<section id="home1-hero" class="home1-hero">
+		<!-- animet  -->
+		<div class="home1-hero-animet">
+			<img src="assets/img/bg/shedo1.png" alt="">
+			<img src="assets/img/bg/shedo2.png" alt="">
+			<img src="assets/img/bg/shedo3.png" alt="">
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="home1-hero-content">
+						<a href="../jsp/delStudent.jsp" class="btn-1">学生管理</a><br><br>
+						<a href="../jsp/delTeacher.jsp" class="btn-1">教师管理</a><br><br>
+						<a href="../jsp/delTeacher.jsp" class="btn-1">奖品管理</a><br><br>
+						<a href="../searchBill.jsp" class="btn-1">奖品处理</a><br><br>
+						<a href="../SummaryReportAction" class="btn-1">做题报告</a><br><br>
+						<a href="../TransferMessageAction" class="btn-1">兑奖报告</a><br><br>
+					</div>
+				</div>
+				<div class="hero1-right">
+					<div class="hero1-right-animet alltuchtopdown">
+						<img src="assets/img/h1-1.png" alt="">
+					</div>
+					<div class="mobile-img-hero1-right-animet">
+						<img src="assets/img/h1-2.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Home 1 Hero -->
+</div>
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/menu.js"></script>
+<script src="assets/js/script.js"></script>
+<script>
+	$(window).on('load', function() {
+		$('#preloader').delay(350).fadeOut('slow');
+		$('body').delay(350).css({
+			'overflow': 'visible'
+		});
+	});
+</script>
+
+</body>
+</html>

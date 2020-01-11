@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.pojo.Students" table="students">
+        <id name="username">
+            <column name="username"/>
+            <generator class="native"/>
+        </id>
+        <property name="password">
+            <column name="password"/>
+        </property>
+        <property name="name">
+            <column name="name"/>
+        </property>
+        <property name="address">
+            <column name="address"/>
+        </property>
+        <property name="phone">
+            <column name="phone"/>
+        </property>
+        <property name="point">
+            <column name="point"/>
+        </property>
+        <set name="recordsList" inverse="true" cascade="all" lazy="false">
+            <key column="sid"/>
+            <one-to-many class="com.pojo.P_record"/>
+        </set>
+        <set name="q_records" inverse="true" cascade="all" lazy="false">
+            <key column="qid"/>
+            <one-to-many class="com.pojo.Q_record"/>
+        </set>
+    </class>
+</hibernate-mapping>

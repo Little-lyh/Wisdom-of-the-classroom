@@ -1,0 +1,66 @@
+<!--pages/addquestion/addquestion.wxml-->
+<!--pages/login/login.wxml-->
+<wh-authorCard isHidden="{{aflag}}" id="authorCardId"></wh-authorCard>
+<scroll-view scroll-y class="DrawerPage {{modalName=='viewModal'?'show':''}}" bindscroll="onPageScroll" scroll-with-animation="true" style="background-color: {{skin?'#ffffff':'#ffffff'}};" bindscrolltolower="loadMore">
+    <cu-custom bgColor="bg-lightGrey" isBack="{{false}}" isCustom="{{true}}" isNav="{{false}}">
+        <view slot="backText">返回</view>
+        <view slot="content" class="text-shadow-meows">
+            <!-- <text class="text-white text-bold">WeHalo</text> -->
+        </view>
+    </cu-custom>
+    <view bindtouchstart="touchStart" bindtouchend="touchEnd" class="flex justify-center align-center bg-white" style="width:100%; height:200rpx;background-repeat: no-repeat; background-size: 100% 100%;">
+        <view class="text-xxl padding text-shadow-meow text-white text-bold" role="" aria-label="">
+               <text class="text-white text-bold">添加题目</text>
+        </view>
+    </view>
+    <view class="cu-bar search bg-white"style="margin:auto;width:90%;height:110rpx;">
+        <view class="search-form round" style="height:90rpx;">
+            <text class="cuIcon-search"></text>
+            <input bindinput="Search1" id="search" name="content" type="text" placeholder="输入题目" confirm-type="search" style="font-size:30rpx;"></input>
+        </view>
+    </view>
+    <view class="cu-bar search bg-white" style="margin:auto;width:90%;height:110rpx;">
+        <view class="search-form round" style="height:90rpx;">
+            <text class="cuIcon-search"></text>
+            <input bindinput="Search2" id="search" name="content" type="text" placeholder="输入选项A" confirm-type="search" style="font-size:30rpx;"></input>
+        </view>
+    </view>
+    <view class="cu-bar search bg-white" style="margin:auto;width:90%;height:110rpx;">
+        <view class="search-form round" style="height:90rpx;">
+            <text class="cuIcon-search"></text>
+            <input bindinput="Search3" id="search" name="content" type="text" placeholder="输入选项B" confirm-type="search" style="font-size:30rpx;"></input>
+        </view>
+    </view>
+    <view class="cu-bar search bg-white" style="margin:auto;width:90%;height:110rpx;">
+        <view class="search-form round" style="height:90rpx;">
+            <text class="cuIcon-search"></text>
+            <input bindinput="Search4" id="search" name="content" type="text" placeholder="输入选项C" confirm-type="search" style="font-size:30rpx;"></input>
+        </view>
+    </view>
+    <view class="cu-bar search bg-white" style="margin:auto;width:90%;height:110rpx;">
+        <view class="search-form round" style="height:90rpx;">
+            <text class="cuIcon-search"></text>
+            <input bindinput="Search5" id="search" name="content" type="text" placeholder="输入选项D" confirm-type="search" style="font-size:30rpx;"></input>
+        </view>
+    </view>
+    <view class="cu-bar search bg-white" style="margin:auto;width:90%;height:110rpx;">
+        <view class="search-form round" style="height:90rpx;">
+            <text class="cuIcon-search"></text>
+            <input bindinput="Search6" id="search" name="content" type="text" placeholder="输入答案" confirm-type="search" style="font-size:30rpx;"></input>
+        </view>
+    </view>
+    <view class="cu-bar search bg-white" style="margin:auto;width:90%;height:110rpx;">
+        <view class="search-form round" style="height:90rpx;">
+            <text class="cuIcon-search"></text>
+            <input bindinput="Search7" id="search" name="content" type="text" placeholder="输入积分" confirm-type="search" style="font-size:30rpx;"></input>
+        </view>
+    </view>
+    <view class="cu-bar search bg-white" >
+        <view class="action" style="margin:auto;width:90%;height:270rpx;width:90%;height:140rpx;">
+            <button class="cu-btn bg-lightBlue shadow-blur round" bindtap="AddSubmit" style="height:100rpx;width:200rpx;font-size:30rpx;">添加</button>
+        </view>
+    </view>
+    <i-toast id="toast" />
+</scroll-view>
+<i-toast id="toast" />
+
